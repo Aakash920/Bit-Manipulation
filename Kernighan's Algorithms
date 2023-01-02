@@ -1,0 +1,27 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+  public static void main(String[] args){
+    Scanner scn = new Scanner(System.in);
+    int n = scn.nextInt();
+    
+    //using Kernighan's Algorithms:
+    //It calculates rsb again and again and count++ because in every rsb 
+    //we have only one '1'.so, that's how we count all ones.
+    
+    int count=0;
+    while(n!=0){
+        int nrsb=rsb(n);
+        count++;
+        n=n-nrsb;
+    }
+    System.out.println(count);
+  }
+  public static int rsb(int n){
+      int ans=n & -n;
+      return ans;
+  }
+
+}
